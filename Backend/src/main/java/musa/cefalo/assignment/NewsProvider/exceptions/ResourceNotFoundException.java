@@ -1,4 +1,4 @@
-package musa.cefalo.assignment.NewsProvider.NewsProvider.exceptions;
+package musa.cefalo.assignment.NewsProvider.exceptions;
 
 /**
  * Created by Asus on 6/30/2017.

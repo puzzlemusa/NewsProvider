@@ -1,4 +1,4 @@
-package musa.cefalo.assignment.NewsProvider.NewsProvider.model;
+package musa.cefalo.assignment.NewsProvider.model;
 
 /**
  * News Model.

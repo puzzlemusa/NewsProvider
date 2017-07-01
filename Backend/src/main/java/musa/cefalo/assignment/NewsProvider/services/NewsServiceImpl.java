@@ -1,7 +1,7 @@
-package musa.cefalo.assignment.NewsProvider.NewsProvider.services;
+package musa.cefalo.assignment.NewsProvider.services;
 
-import musa.cefalo.assignment.NewsProvider.NewsProvider.exceptions.ResourceNotFoundException;
-import musa.cefalo.assignment.NewsProvider.NewsProvider.model.News;
+import musa.cefalo.assignment.NewsProvider.exceptions.ResourceNotFoundException;
+import musa.cefalo.assignment.NewsProvider.model.News;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

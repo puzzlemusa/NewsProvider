@@ -1,4 +1,4 @@
-package musa.cefalo.assignment.NewsProvider.NewsProvider;
+package musa.cefalo.assignment.NewsProvider;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

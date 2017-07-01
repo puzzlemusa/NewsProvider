@@ -1,6 +1,6 @@
-package musa.cefalo.assignment.NewsProvider.NewsProvider.services;
+package musa.cefalo.assignment.NewsProvider.services;
 
-import musa.cefalo.assignment.NewsProvider.NewsProvider.model.News;
+import musa.cefalo.assignment.NewsProvider.model.News;
 
 import java.util.List;
 

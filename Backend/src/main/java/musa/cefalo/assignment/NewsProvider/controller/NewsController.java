@@ -1,8 +1,8 @@
-package musa.cefalo.assignment.NewsProvider.NewsProvider.controller;
+package musa.cefalo.assignment.NewsProvider.controller;
 
 
-import musa.cefalo.assignment.NewsProvider.NewsProvider.model.News;
-import musa.cefalo.assignment.NewsProvider.NewsProvider.services.NewsService;
+import musa.cefalo.assignment.NewsProvider.model.News;
+import musa.cefalo.assignment.NewsProvider.services.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
