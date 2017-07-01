@@ -1,0 +1,35 @@
+﻿<div>
+    <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+            <a class='navbar-brand'>{{pageTitle}}</a>
+            <ul class='nav navbar-nav'>
+                <li><a [routerLink]="['../productionLines']">View News</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body"  >
+
+        <form id="newsForm">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" required name="title" id="title">
+            </div>
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea class="form-control" required name="body" id="body"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" required name="author" id="author">
+            </div>
+
+            <button type="submit" class="btn btn-primary" >Save</button>
+        </form>
+
+    </div>
+</div>

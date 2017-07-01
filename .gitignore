@@ -10,8 +10,8 @@ Backend/build/
 ### Angular 2 App ###
 logs/*
 !.gitkeep
-Frondend/node_modules/
-Frondend/typings/
+Frontend/node_modules/
+Frontend/typings/
 bower_components/
 tmp
 .DS_Store
