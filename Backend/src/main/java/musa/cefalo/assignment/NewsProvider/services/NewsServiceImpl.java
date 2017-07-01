@@ -21,7 +21,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public News save(News news) {
-        news.setId(this.newsList.size() + 1);
+        news.setNewsId(this.newsList.size() + 1);
         newsList.add(news);
         return news;
     }

@@ -23,8 +23,14 @@ var NewsProviderService = (function () {
             .do(function (data) { return console.log('ALL: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
+    NewsProviderService.prototype.getNews = function (newsId) {
+        return this._http.get(this.apiUrl + newsId)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('News: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
     NewsProviderService.prototype.createNews = function (news) {
-        delete news['_id'];
+        delete news['newsId'];
         var bodyString = JSON.stringify(news);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });

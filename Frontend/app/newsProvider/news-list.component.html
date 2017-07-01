@@ -17,7 +17,14 @@
     <div class='panel-body'>
         <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
             <ul class="list-group" *ngFor='let news of newsList'>
-                    <li class="list-group-item">{{news.title}}</li>
+                    <li class="list-group-item">
+                        {{news.title}}
+                        <h6>
+                            <a routerLink='/viewnews/{{news.newsId}}'>
+                                html
+                            </a>
+                        </h6>
+                    </li>
             </ul>
     </div>
 </div>

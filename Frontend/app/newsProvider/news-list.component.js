@@ -14,7 +14,7 @@ var news_provider_service_1 = require("./services/news-provider.service");
 var NewsListComponent = (function () {
     function NewsListComponent(_newProviderService) {
         this._newProviderService = _newProviderService;
-        this.pageTitle = 'News';
+        this.pageTitle = 'News Collection';
     }
     NewsListComponent.prototype.ngOnInit = function () {
         var _this = this;

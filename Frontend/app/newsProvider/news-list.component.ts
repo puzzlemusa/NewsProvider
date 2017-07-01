@@ -8,7 +8,7 @@ import {NewsProviderService} from "./services/news-provider.service";
 })
 
 export class NewsListComponent implements OnInit {
-    pageTitle: string = 'News';
+    pageTitle: string = 'News Collection';
     errorMessage: string;
     newsList: INews[];
 

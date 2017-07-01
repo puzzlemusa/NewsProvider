@@ -14,7 +14,7 @@ export class NewsFormComponent {
 
     createNewNews() : void {
         var news = {
-            _id: '',
+            newsId: '',
             title: this.title,
             body: this.body,
             author: this.author

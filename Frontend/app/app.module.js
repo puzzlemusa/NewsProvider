@@ -15,10 +15,13 @@ var app_component_1 = require("./app.component");
 var news_form_component_1 = require("./newsProvider/news-form.component");
 var news_provider_service_1 = require("./newsProvider/services/news-provider.service");
 var news_list_component_1 = require("./newsProvider/news-list.component");
+var news_component_1 = require("./newsProvider/news.component");
 var appRoutes = [
     { path: '', redirectTo: 'addnews', pathMatch: 'full' },
     { path: 'addnews', component: news_form_component_1.NewsFormComponent },
     { path: 'viewnews', component: news_list_component_1.NewsListComponent },
+    { path: 'viewnews/:newsId', component: news_component_1.NewsComponent }
+    //{ path: '**', component: PageNotFoundComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -34,7 +37,8 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 news_form_component_1.NewsFormComponent,
-                news_list_component_1.NewsListComponent
+                news_list_component_1.NewsListComponent,
+                news_component_1.NewsComponent
             ],
             providers: [
                 news_provider_service_1.NewsProviderService

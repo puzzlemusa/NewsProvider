@@ -8,11 +8,13 @@ import { AppComponent }   from './app.component';
 import { NewsFormComponent } from './newsProvider/news-form.component'
 import {NewsProviderService} from "./newsProvider/services/news-provider.service";
 import {NewsListComponent} from "./newsProvider/news-list.component";
+import {NewsComponent} from "./newsProvider/news.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'addnews', pathMatch: 'full' },
     { path: 'addnews', component: NewsFormComponent },
     { path: 'viewnews', component: NewsListComponent },
+    { path: 'viewnews/:newsId', component: NewsComponent}
     //{ path: '**', component: PageNotFoundComponent }
 ];
 
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent,
         NewsFormComponent,
-        NewsListComponent
+        NewsListComponent,
+        NewsComponent
     ],
     providers: [
         NewsProviderService

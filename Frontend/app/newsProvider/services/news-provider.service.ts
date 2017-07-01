@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core'
+import {Injectable} from '@angular/core'
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import {INews} from "../model/news";
@@ -16,8 +16,15 @@ export class NewsProviderService {
             .catch(this.handleError);
     }
 
+    getNews(newsId: string): Observable<INews> {
+        return this._http.get(this.apiUrl + newsId)
+            .map((response: Response) => response.json())
+            .do(data => console.log('News: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
     createNews(news: INews) : Observable<INews> {
-        delete news['_id'];
+        delete news['newsId'];
         let bodyString = JSON.stringify(news);
         let headers      = new Headers({ 'Content-Type': 'application/json' });
         let options       = new RequestOptions({ headers: headers });

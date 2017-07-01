@@ -1,0 +1,21 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <!-- Filter the Products   -->
+    <div class='panel-body'>
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+        <div *ngIf='news'>
+            Title: {{news.title}}<br>
+            Body: {{news.body}}<br>
+            Author: {{news.author}}
+        </div>
+    </div>
+
+    <div class="panel-footer">
+        <a class="btn btn-default" (click)='onBack()' style="width:80px">
+            <i class="glyphicon glyphicon-chevron-left"></i>Back
+        </a>
+    </div>
+</div>

@@ -18,7 +18,7 @@ var NewsFormComponent = (function () {
     }
     NewsFormComponent.prototype.createNewNews = function () {
         var news = {
-            _id: '',
+            newsId: '',
             title: this.title,
             body: this.body,
             author: this.author

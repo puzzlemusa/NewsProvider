@@ -5,11 +5,12 @@ package musa.cefalo.assignment.NewsProvider.model;
  */
 
 public class News {
-    private int id;
+    private int newsId;
     private String title;
     private String body;
     private String author;
 
+    public int getNewsId() {return newsId;}
 
     public String getTitle() {
         return title;
@@ -23,7 +24,7 @@ public class News {
         return author;
     }
 
-    public void setId(int id){
-        this.id = id;
+    public void setNewsId(int newsId){
+        this.newsId = newsId;
     }
 }
