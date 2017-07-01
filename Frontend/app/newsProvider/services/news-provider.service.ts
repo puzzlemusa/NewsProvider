@@ -7,7 +7,7 @@ import {INews} from "../model/news";
 export class NewsProviderService {
     private apiUrl = 'http://localhost:8080/news/';
 
-    constructor(@Inject(Http)private _http: Http) { }
+    constructor(private _http: Http) { }
 
     getAllNews(): Observable<INews[]> {
         return this._http.get(this.apiUrl)

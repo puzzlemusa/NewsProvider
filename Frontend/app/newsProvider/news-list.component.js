@@ -11,32 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var news_provider_service_1 = require("./services/news-provider.service");
-var NewsFormComponent = (function () {
-    function NewsFormComponent(_newProviderService) {
+var NewsListComponent = (function () {
+    function NewsListComponent(_newProviderService) {
         this._newProviderService = _newProviderService;
-        this.pageTitle = "Add News";
+        this.pageTitle = 'News';
     }
-    NewsFormComponent.prototype.createNewNews = function () {
-        var news = {
-            _id: '',
-            title: this.title,
-            body: this.body,
-            author: this.author
-        };
-        this._newProviderService.createNews(news)
-            .subscribe(function (news) {
-            if (news) {
-                console.log('News created');
-            }
-        });
+    NewsListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._newProviderService.getAllNews()
+            .subscribe(function (newsList) { return _this.newsList = newsList; }, function (error) { return _this.errorMessage = error; });
     };
-    NewsFormComponent = __decorate([
+    NewsListComponent = __decorate([
         core_1.Component({
-            templateUrl: 'app/newsProvider/news-form.component.html'
+            templateUrl: 'app/newsProvider/news-list.component.html',
+            styleUrls: ['app/app.component.css']
         }),
         __metadata("design:paramtypes", [news_provider_service_1.NewsProviderService])
-    ], NewsFormComponent);
-    return NewsFormComponent;
+    ], NewsListComponent);
+    return NewsListComponent;
 }());
-exports.NewsFormComponent = NewsFormComponent;
-//# sourceMappingURL=news-form.component.js.map
+exports.NewsListComponent = NewsListComponent;
+//# sourceMappingURL=news-list.component.js.map

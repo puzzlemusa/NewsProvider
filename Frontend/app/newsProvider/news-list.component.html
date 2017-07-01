@@ -1,0 +1,23 @@
+<div>
+    <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+            <a class='navbar-brand'>{{pageTitle}}</a>
+            <ul class='nav navbar-nav'>
+                <li><a [routerLink]="['../addnews']">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <!-- Filter the Products   -->
+    <div class='panel-body'>
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+            <ul class="list-group" *ngFor='let news of newsList'>
+                    <li class="list-group-item">{{news.title}}</li>
+            </ul>
+    </div>
+</div>

@@ -10,7 +10,7 @@ export class NewsFormComponent {
     body : string;
     author : string;
 
-    constructor(@Inject(NewsProviderService)private _newProviderService: NewsProviderService) {}
+    constructor(private _newProviderService: NewsProviderService) {}
 
     createNewNews() : void {
         var news = {
