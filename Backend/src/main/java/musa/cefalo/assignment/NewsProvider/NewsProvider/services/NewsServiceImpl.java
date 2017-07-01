@@ -1,8 +1,7 @@
 package musa.cefalo.assignment.NewsProvider.NewsProvider.services;
 
+import musa.cefalo.assignment.NewsProvider.NewsProvider.exceptions.ResourceNotFoundException;
 import musa.cefalo.assignment.NewsProvider.NewsProvider.model.News;
-import musa.cefalo.assignment.NewsProvider.exceptions.ResourceNotFoundException;
-import musa.cefalo.assignment.NewsProvider.model.News;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,6 +28,9 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public News findOne(int id) {
+        if(id >= newsList.size() || id <= 0)
+            throw new ResourceNotFoundException("No such news");
+
         return newsList.get(id - 1);
     }
 
