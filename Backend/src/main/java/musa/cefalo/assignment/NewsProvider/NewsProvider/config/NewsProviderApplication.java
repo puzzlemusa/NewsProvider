@@ -1,4 +1,4 @@
-package musa.cefalo.assignment.NewsProvider.NewsProvider;
+package musa.cefalo.assignment.NewsProvider.NewsProvider.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
