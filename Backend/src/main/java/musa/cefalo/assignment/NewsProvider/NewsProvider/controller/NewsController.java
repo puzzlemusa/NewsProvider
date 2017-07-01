@@ -28,4 +28,10 @@ public class NewsController {
         List<News> newsList = this.newsService.findAll();
         return new ResponseEntity<>(newsList, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/news", method = RequestMethod.POST)
+    public ResponseEntity<News> createNews(@RequestBody News news) {
+        News newNews = this.newsService.save(news);
+        return new ResponseEntity<>(newNews, HttpStatus.CREATED);
+    }
 }
