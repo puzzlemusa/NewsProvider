@@ -9,6 +9,7 @@ Backend/build/
 *.ipr
 ### Angular 2 App ###
 logs/*
+*.log
 !.gitkeep
 Frontend/node_modules/
 Frontend/typings/
