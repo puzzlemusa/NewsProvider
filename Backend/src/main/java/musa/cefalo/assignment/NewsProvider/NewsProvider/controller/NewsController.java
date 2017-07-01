@@ -29,6 +29,12 @@ public class NewsController {
         return new ResponseEntity<>(newsList, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/news/{id}")
+    public ResponseEntity<News> getNews(@PathVariable("id") int id){
+        News news = this.newsService.findOne(id);
+        return new ResponseEntity<>(news, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/news", method = RequestMethod.POST)
     public ResponseEntity<News> createNews(@RequestBody News news) {
         News newNews = this.newsService.save(news);
