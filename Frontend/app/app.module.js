@@ -13,6 +13,7 @@ var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var news_form_component_1 = require("./newsProvider/news-form.component");
+var news_provider_service_1 = require("./newsProvider/services/news-provider.service");
 var appRoutes = [
     { path: '', redirectTo: 'addnews', pathMatch: 'full' },
     { path: 'addnews', component: news_form_component_1.NewsFormComponent },
@@ -32,7 +33,9 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 news_form_component_1.NewsFormComponent
             ],
-            providers: [],
+            providers: [
+                news_provider_service_1.NewsProviderService
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

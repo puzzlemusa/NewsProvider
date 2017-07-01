@@ -17,18 +17,18 @@
         <form id="newsForm">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" required name="title" id="title">
+                <input type="text" class="form-control" required [(ngModel)]="title" name="title" id="title">
             </div>
             <div class="form-group">
                 <label for="body">Body</label>
-                <textarea class="form-control" required name="body" id="body"></textarea>
+                <textarea class="form-control" required [(ngModel)]="body" name="body" id="body"></textarea>
             </div>
             <div class="form-group">
                 <label for="author">Author</label>
-                <input type="text" class="form-control" required name="author" id="author">
+                <input type="text" class="form-control" required [(ngModel)]="author" name="author" id="author">
             </div>
 
-            <button type="submit" class="btn btn-primary" >Save</button>
+            <button type="submit" class="btn btn-primary" (click)= 'createNewNews()'>Save</button>
         </form>
 
     </div>

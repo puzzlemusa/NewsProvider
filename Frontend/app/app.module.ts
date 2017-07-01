@@ -6,6 +6,7 @@ import { RouterModule, Routes} from '@angular/router'
 
 import { AppComponent }   from './app.component';
 import { NewsFormComponent } from './newsProvider/news-form.component'
+import {NewsProviderService} from "./newsProvider/services/news-provider.service";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'addnews', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
         NewsFormComponent
     ],
     providers: [
+        NewsProviderService
     ],
     bootstrap:    [ AppComponent ]
 })

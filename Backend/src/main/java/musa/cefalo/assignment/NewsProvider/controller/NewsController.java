@@ -35,6 +35,7 @@ public class NewsController {
         return new ResponseEntity<>(news, HttpStatus.OK);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/news", method = RequestMethod.POST)
     public ResponseEntity<News> createNews(@RequestBody News news) {
         News newNews = this.newsService.save(news);
