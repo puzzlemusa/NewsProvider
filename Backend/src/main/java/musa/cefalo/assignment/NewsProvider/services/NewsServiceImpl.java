@@ -28,7 +28,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public News findOne(int id) {
-        if(id >= newsList.size() || id <= 0)
+        if(id > newsList.size() || id <= 0)
             throw new ResourceNotFoundException("No such news");
 
         return newsList.get(id - 1);
