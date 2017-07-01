@@ -23,12 +23,14 @@ public class NewsController {
         this.newsService = newsService;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = {"if-none-match"})
     @RequestMapping(value = "/news", method = RequestMethod.GET)
     public ResponseEntity<List<News>> getAllNews(){
         List<News> newsList = this.newsService.findAll();
         return new ResponseEntity<>(newsList, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = {"if-none-match"})
     @RequestMapping(value = "/news/{id}")
     public ResponseEntity<News> getNews(@PathVariable("id") int id){
         News news = this.newsService.findOne(id);
