@@ -1,5 +1,9 @@
 package musa.cefalo.assignment.NewsProvider.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+
 /**
  * News Model.
  */
@@ -9,6 +13,8 @@ public class News {
     private String title;
     private String body;
     private String author;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date publishDate;
 
     public int getNewsId() {return newsId;}
 
@@ -26,5 +32,9 @@ public class News {
 
     public void setNewsId(int newsId){
         this.newsId = newsId;
+    }
+
+    public Date getPublishDate() {
+        return publishDate;
     }
 }
