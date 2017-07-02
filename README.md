@@ -4,24 +4,19 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+This is a Cefalo assignment, A simple news service provider. This application is divided into frontend and backend. Here we can add news and view news. We can use the api in both json and xml data format.
+
+### Framework used ###
+
+* For the backend Spring Boot is used.
+* FOr frontend Angular 2 is used.
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+* To run backend just to to Backend directory. Open command promd and type:
+```
+gradlew build
+```
 
 ### Who do I talk to? ###
 
