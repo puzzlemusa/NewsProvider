@@ -6,6 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import musa.cefalo.assignment.NewsProvider.model.News;
 import musa.cefalo.assignment.NewsProvider.services.NewsService;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,7 +18,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.mockito.Mockito.reset;
@@ -54,6 +57,26 @@ public class Steps {
 
         testContext.put("ExpectedNews", news);
         when(newsService.findOne(news.getNewsId())).thenReturn(news);
+    }
+
+    @Given("^an existing list of news$")
+    public void anExistingListOfNews(List<Map<String, String>> newsMapList) throws Throwable {
+        ArrayList<News> result = new ArrayList<>();
+
+        int i = 1;
+        for(Map<String, String> newsMap: newsMapList){
+            News news = new News();
+            news.setNewsId(i++);
+            news.setTitle(newsMap.get("title"));
+            news.setBody(newsMap.get("body"));
+            news.setAuthor(newsMap.get("author"));
+            news.setPublishDate(new SimpleDateFormat("yyyy-MM-dd").parse(newsMap.get("publishDate")));
+
+            result.add(news);
+        }
+
+        testContext.put("ExpectedNewsList", result);
+        when(newsService.findAll()).thenReturn(result);
     }
 
     @When("^a GET request is received on (.+)$")
@@ -95,7 +118,7 @@ public class Steps {
         Assert.assertEquals(expectedNews.getAuthor(), savedNews.getAuthor());
     }
 
-    @Then("^the news is returned as json")
+    @Then("^the news is returned")
     public void RecordingIsReturned() throws Exception
     {
         ((ResultActions)testContext.get("ResultActions")).andDo(result -> {
@@ -105,6 +128,16 @@ public class Steps {
             Assert.assertEquals(expectedNews.getTitle(), jsonObject.get("title"));
             Assert.assertEquals(expectedNews.getBody(), jsonObject.get("body"));
             Assert.assertEquals(expectedNews.getAuthor(), jsonObject.get("author"));
+        });
+    }
+
+    @Then("^the news list is returned$")
+    public void theNewsListIsReturned() throws Throwable {
+        ((ResultActions)testContext.get("ResultActions")).andDo(result -> {
+            News expectedNews = (News)testContext.get("ExpectedNews");
+            String contentAsString = result.getResponse().getContentAsString();
+            JSONArray jsonArray = new JSONArray(contentAsString);
+            Assert.assertNotNull(jsonArray);
         });
     }
 }
