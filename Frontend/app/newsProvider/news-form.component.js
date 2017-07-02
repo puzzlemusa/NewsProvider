@@ -21,7 +21,8 @@ var NewsFormComponent = (function () {
             newsId: '',
             title: this.title,
             body: this.body,
-            author: this.author
+            author: this.author,
+            publishDate: this.publishDate
         };
         this._newProviderService.createNews(news)
             .subscribe(function (news) {

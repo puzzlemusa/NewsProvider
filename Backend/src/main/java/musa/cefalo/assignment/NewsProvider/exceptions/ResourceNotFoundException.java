@@ -1,7 +1,7 @@
 package musa.cefalo.assignment.NewsProvider.exceptions;
 
 /**
- * Created by Asus on 6/30/2017.
+ * Exception for no resource.
  */
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException() {

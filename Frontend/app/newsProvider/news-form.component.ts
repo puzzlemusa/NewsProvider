@@ -9,6 +9,7 @@ export class NewsFormComponent {
     title : string;
     body : string;
     author : string;
+    publishDate : string;
 
     constructor(private _newProviderService: NewsProviderService) {}
 
@@ -17,7 +18,8 @@ export class NewsFormComponent {
             newsId: '',
             title: this.title,
             body: this.body,
-            author: this.author
+            author: this.author,
+            publishDate: this.publishDate
         };
 
         this._newProviderService.createNews(news)
