@@ -2,9 +2,9 @@ package musa.cefalo.assignment.NewsProvider.services;
 
 import musa.cefalo.assignment.NewsProvider.exceptions.ResourceNotFoundException;
 import musa.cefalo.assignment.NewsProvider.model.News;
+import musa.cefalo.assignment.NewsProvider.repositories.InMemoryNewsRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,29 +13,28 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
 
-    private List<News> newsList;
+    private InMemoryNewsRepository inMemoryNewsService;
 
-    public NewsServiceImpl() {
-        this.newsList = new ArrayList<>();
+    public NewsServiceImpl(InMemoryNewsRepository inMemoryNewsService) {
+        this.inMemoryNewsService = inMemoryNewsService;
     }
 
     @Override
     public News save(News news) {
-        news.setNewsId(this.newsList.size() + 1);
-        newsList.add(news);
-        return news;
+        return this.inMemoryNewsService.save(news);
     }
 
     @Override
     public News findOne(int id) {
-        if(id > newsList.size() || id <= 0)
+        News news = this.inMemoryNewsService.findOne(id);
+        if(news == null)
             throw new ResourceNotFoundException("No such news");
 
-        return newsList.get(id - 1);
+        return news;
     }
 
     @Override
     public List<News> findAll() {
-        return newsList;
+        return this.inMemoryNewsService.findAll();
     }
 }

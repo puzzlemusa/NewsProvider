@@ -19,7 +19,6 @@ public class NewsController {
 
     private NewsService newsService;
 
-    @Autowired
     public NewsController(NewsService newsService) {
         this.newsService = newsService;
     }
