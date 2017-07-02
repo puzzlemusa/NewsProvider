@@ -4,7 +4,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-This is a Cefalo assignment, A simple news service provider. This application is divided into frontend and backend. Here we can add news and view news. We can use the api in both json and xml data format.
+This is a Cefalo assignment, a simple news service provider. This application is divided into frontend and backend. Here we can add news and view news. We can use the api in both json and xml data format.
 
 ### Framework used ###
 
@@ -22,7 +22,7 @@ Once completed type:
 ```
 gradlew bootRun
 ```
-Then server should be up and running on http://localhost:8080/
+Then server should be up and running on http://localhost:8080/news.json
 
 ####Frondend
 First we need install Node. If your system don't have Node install, go to https://nodejs.org/en/download/, download and install. Installation is pretty straight forward so it wont be a problem.
