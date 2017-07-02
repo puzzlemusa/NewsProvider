@@ -15,6 +15,3 @@ Feature: NewsController
       | publishDate  | 2017-07-02  |
     When a GET request is received on /news/1.json
     Then the news is returned as json
-
-  Scenario: Receiving a  GET request for a not existing news
-    Given
