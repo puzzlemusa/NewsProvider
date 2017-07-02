@@ -17,6 +17,7 @@ var NewsFormComponent = (function () {
         this.pageTitle = "Add News";
     }
     NewsFormComponent.prototype.createNewNews = function () {
+        var _this = this;
         var news = {
             newsId: '',
             title: this.title,
@@ -28,6 +29,10 @@ var NewsFormComponent = (function () {
             .subscribe(function (news) {
             if (news) {
                 console.log('News created');
+                _this.title = '';
+                _this.body = '';
+                _this.author = '';
+                _this.publishDate = '';
             }
         });
     };

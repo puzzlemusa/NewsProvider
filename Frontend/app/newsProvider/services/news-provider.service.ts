@@ -5,19 +5,19 @@ import {INews} from "../model/news";
 
 @Injectable()
 export class NewsProviderService {
-    private apiUrl = 'http://localhost:8080/news/';
+    private apiUrl = 'http://localhost:8080/news';
 
     constructor(private _http: Http) { }
 
     getAllNews(): Observable<INews[]> {
-        return this._http.get(this.apiUrl)
+        return this._http.get(this.apiUrl + '.json')
             .map((response: Response) => response.json())
             .do(data => console.log('ALL: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
     getNews(newsId: string): Observable<INews> {
-        return this._http.get(this.apiUrl + newsId)
+        return this._http.get(this.apiUrl  + '/' + newsId + '.json')
             .map((response: Response) => response.json())
             .do(data => console.log('News: ' + JSON.stringify(data)))
             .catch(this.handleError);
@@ -29,7 +29,7 @@ export class NewsProviderService {
         let headers      = new Headers({ 'Content-Type': 'application/json' });
         let options       = new RequestOptions({ headers: headers });
 
-        return this._http.post(this.apiUrl, bodyString, options)
+        return this._http.post(this.apiUrl + '.json', bodyString, options)
             .map((response: Response) => {
                 if(response.status === 201) {
                     return response.json();

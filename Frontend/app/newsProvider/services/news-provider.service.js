@@ -15,16 +15,16 @@ var Observable_1 = require("rxjs/Observable");
 var NewsProviderService = (function () {
     function NewsProviderService(_http) {
         this._http = _http;
-        this.apiUrl = 'http://localhost:8080/news/';
+        this.apiUrl = 'http://localhost:8080/news';
     }
     NewsProviderService.prototype.getAllNews = function () {
-        return this._http.get(this.apiUrl)
+        return this._http.get(this.apiUrl + '.json')
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('ALL: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     NewsProviderService.prototype.getNews = function (newsId) {
-        return this._http.get(this.apiUrl + newsId)
+        return this._http.get(this.apiUrl + '/' + newsId + '.json')
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('News: ' + JSON.stringify(data)); })
             .catch(this.handleError);
@@ -34,7 +34,7 @@ var NewsProviderService = (function () {
         var bodyString = JSON.stringify(news);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.post(this.apiUrl, bodyString, options)
+        return this._http.post(this.apiUrl + '.json', bodyString, options)
             .map(function (response) {
             if (response.status === 201) {
                 return response.json();

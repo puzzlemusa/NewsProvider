@@ -27,6 +27,10 @@ export class NewsFormComponent {
                 news => {
                     if(news) {
                         console.log('News created');
+                        this.title = '';
+                        this.body = '';
+                        this.author = '';
+                        this.publishDate = '';
                     }
                 }
             )
