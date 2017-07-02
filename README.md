@@ -4,26 +4,41 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+This is a Cefalo assignment, a simple news service provider. This application is divided into frontend and backend. Here we can add news and view news. We can use the api in both json and xml data format.
+
+### Framework used ###
+
+* For the backend Spring Boot is used.
+* For frontend Angular 2 is used.
 
 ### How do I get set up? ###
+####Backend
+To run backend just to to Backend directory. Open command prompt there and type:
+```
+gradlew build
+```
+and hit enter. It should take couple of minutes to download all dependencies.
+Once completed type: 
+```
+gradlew bootRun
+```
+Then server should be up and running on http://localhost:8080/news.json
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+####Frondend
+First we need install Node. If your system don't have Node install, go to https://nodejs.org/en/download/, download and install. Installation is pretty straight forward so it wont be a problem.
+Now go to Frondend directory. Open another command prompt instance there and type:
+```
+npm install
+```
+hit enter. Again it should take couple of minutes to download all dependencies. When completed type
+```
+npm start
+```
+and hit enter, then a news form should opened in your default browser.
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
 
 ### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Abu Saled Md Musa
+Email: puzzlemusa@gmail.com
+Skype: puzzlemusa
+Mobile: +880 177 779 0489
