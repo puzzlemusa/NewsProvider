@@ -5,6 +5,7 @@ import musa.cefalo.assignment.NewsProvider.model.News;
 import musa.cefalo.assignment.NewsProvider.services.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,7 @@ public class NewsController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = {"if-none-match"})
-    @RequestMapping(value = "/news", method = RequestMethod.GET)
+    @RequestMapping(value = "/news", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "text/html;charset=UTF-8"}, method = RequestMethod.GET)
     public ResponseEntity<List<News>> getAllNews(){
         List<News> newsList = this.newsService.findAll();
         return new ResponseEntity<>(newsList, HttpStatus.OK);
