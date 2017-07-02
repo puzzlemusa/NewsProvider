@@ -31,6 +31,7 @@ export class NewsFormComponent {
                         this.body = '';
                         this.author = '';
                         this.publishDate = '';
+                        alert('News successfully added');
                     }
                 }
             )

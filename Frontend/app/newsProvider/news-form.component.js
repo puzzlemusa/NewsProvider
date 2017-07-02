@@ -33,6 +33,7 @@ var NewsFormComponent = (function () {
                 _this.body = '';
                 _this.author = '';
                 _this.publishDate = '';
+                alert('News successfully added');
             }
         });
     };
