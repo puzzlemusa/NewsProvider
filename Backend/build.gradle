@@ -26,4 +26,9 @@ dependencies {
 	compile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.8')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile("junit:junit:4.12")
+	testCompile("info.cukes:cucumber-junit:1.2.5")
+	testCompile("org.springframework:spring-test:4.3.7.RELEASE")
+	testCompile("info.cukes:cucumber-spring:1.2.5")
+	testCompile("info.cukes:cucumber-core:1.2.5")
 }
