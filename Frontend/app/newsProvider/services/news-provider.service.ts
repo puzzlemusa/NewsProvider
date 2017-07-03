@@ -2,14 +2,18 @@ import {Injectable} from '@angular/core'
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import {INews} from "../model/news";
+import {ConfigService} from "./config";
 
 @Injectable()
 export class NewsProviderService {
-    private apiUrl = 'http://localhost:8080/news';
+    private apiUrl: string;
 
-    constructor(private _http: Http) { }
+    constructor(private _http: Http,
+                private _config: ConfigService) {
+    }
 
     getAllNews(): Observable<INews[]> {
+        this.getApiUrl();
         return this._http.get(this.apiUrl + '.json')
             .map((response: Response) => response.json())
             .do(data => console.log('ALL: ' + JSON.stringify(data)))
@@ -17,6 +21,7 @@ export class NewsProviderService {
     }
 
     getNews(newsId: string): Observable<INews> {
+        this.getApiUrl();
         return this._http.get(this.apiUrl  + '/' + newsId + '.json')
             .map((response: Response) => response.json())
             .do(data => console.log('News: ' + JSON.stringify(data)))
@@ -24,6 +29,7 @@ export class NewsProviderService {
     }
 
     createNews(news: INews) : Observable<INews> {
+        this.getApiUrl();
         delete news['newsId'];
         let bodyString = JSON.stringify(news);
         let headers      = new Headers({ 'Content-Type': 'application/json' });
@@ -43,5 +49,10 @@ export class NewsProviderService {
         // instead of just logging it to the console
         console.error(error);
         return Observable.throw(error.json().error || 'Server error: ' + error);
+    }
+
+    private getApiUrl(){
+        if(!this.apiUrl)
+            this.apiUrl = this._config.get("apiUrl");
     }
 }

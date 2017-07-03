@@ -1,4 +1,4 @@
-import { NgModule }      from '@angular/core';
+import {APP_INITIALIZER, NgModule}      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http'
@@ -9,6 +9,7 @@ import { NewsFormComponent } from './newsProvider/news-form.component'
 import {NewsProviderService} from "./newsProvider/services/news-provider.service";
 import {NewsListComponent} from "./newsProvider/news-list.component";
 import {NewsComponent} from "./newsProvider/news.component";
+import {ConfigService} from "./newsProvider/services/config";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'addnews', pathMatch: 'full' },
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
     { path: 'viewnews/:newsId', component: NewsComponent}
     //{ path: '**', component: PageNotFoundComponent }
 ];
+
+function loadConfig(context: ConfigService) {
+    return () => context.load();
+}
 
 @NgModule({
     imports: [
@@ -32,7 +37,12 @@ const appRoutes: Routes = [
         NewsComponent
     ],
     providers: [
-        NewsProviderService
+        NewsProviderService,
+        ConfigService,
+        { provide: APP_INITIALIZER,
+            useFactory: loadConfig,
+            deps: [ConfigService],
+            multi: true }
     ],
     bootstrap:    [ AppComponent ]
 })

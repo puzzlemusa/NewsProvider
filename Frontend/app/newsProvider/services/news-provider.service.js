@@ -12,24 +12,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
+var config_1 = require("./config");
 var NewsProviderService = (function () {
-    function NewsProviderService(_http) {
+    function NewsProviderService(_http, _config) {
         this._http = _http;
-        this.apiUrl = 'http://localhost:8080/news';
+        this._config = _config;
     }
     NewsProviderService.prototype.getAllNews = function () {
+        this.getApiUrl();
         return this._http.get(this.apiUrl + '.json')
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('ALL: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     NewsProviderService.prototype.getNews = function (newsId) {
+        this.getApiUrl();
         return this._http.get(this.apiUrl + '/' + newsId + '.json')
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('News: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     NewsProviderService.prototype.createNews = function (news) {
+        this.getApiUrl();
         delete news['newsId'];
         var bodyString = JSON.stringify(news);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -48,9 +52,14 @@ var NewsProviderService = (function () {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error: ' + error);
     };
+    NewsProviderService.prototype.getApiUrl = function () {
+        if (!this.apiUrl)
+            this.apiUrl = this._config.get("apiUrl");
+    };
     NewsProviderService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
+        __metadata("design:paramtypes", [http_1.Http,
+            config_1.ConfigService])
     ], NewsProviderService);
     return NewsProviderService;
 }());
