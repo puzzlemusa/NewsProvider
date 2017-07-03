@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implementation of InMemoryNewsRepository.
+ * Implementation of NewsRepository.
  */
 @Repository
-public class InMemoryNewsRepositoryImpl implements InMemoryNewsRepository {
+public class InMemoryNewsRepositoryImpl implements NewsRepository {
     private List<News> newsList;
 
     public InMemoryNewsRepositoryImpl() {

@@ -1,6 +1,6 @@
 package musa.cefalo.assignment.NewsProvider.servicesTests.NewsServices;
 
-import musa.cefalo.assignment.NewsProvider.repositories.InMemoryNewsRepository;
+import musa.cefalo.assignment.NewsProvider.repositories.NewsRepository;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class NewsServiceTestConfiguration {
 
     @Mock
-    InMemoryNewsRepository inMemoryNewsRepository;
+    NewsRepository newsRepository;
 
     HashMap<String, Object> testContext;
 
@@ -25,5 +25,6 @@ public class NewsServiceTestConfiguration {
         return this.testContext;
     }
 
-    @Bean InMemoryNewsRepository getInMemoryNewsRepository() {return this.inMemoryNewsRepository;}
+    @Bean
+    NewsRepository getNewsRepository() {return this.newsRepository;}
 }

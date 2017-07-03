@@ -4,7 +4,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import musa.cefalo.assignment.NewsProvider.model.News;
-import musa.cefalo.assignment.NewsProvider.repositories.InMemoryNewsRepository;
+import musa.cefalo.assignment.NewsProvider.repositories.NewsRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 public class Steps {
 
     @Autowired
-    private InMemoryNewsRepository inMemoryNewsRepository;
+    private NewsRepository newsRepository;
 
     @Autowired
     private HashMap<String, Object> testContext;
@@ -33,13 +33,13 @@ public class Steps {
     @Given("^news with id ([0-9]+) doesn't exist$")
     public void givenNonExistingNews(int id) throws Exception
     {
-        when(inMemoryNewsRepository.findOne(id)).thenReturn(null);
+        when(newsRepository.findOne(id)).thenReturn(null);
     }
 
     @When("^a GET request is received for news with newsId ([0-9]+)$")
     public void getRequestReceived(int id) throws Exception
     {
-        testContext.put("ExpectedNews", inMemoryNewsRepository.findOne(id));
+        testContext.put("ExpectedNews", newsRepository.findOne(id));
     }
 
     @Then("^null is returned$")
