@@ -27,7 +27,7 @@ Then server should be up and running on http://localhost:8080/news.json
 
 ####Frontend####
 First you need install Node. If your system don't have Node installed, go to https://nodejs.org/en/download/, download and install. Installation is pretty straight forward so it wont be a problem.
-Now go to **Frontdend** directory. Open another command prompt instance there and type:
+Now go to **Frontend** directory. Open another command prompt instance there and type:
 ```
 npm install
 ```
