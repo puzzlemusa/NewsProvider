@@ -1,18 +1,19 @@
 package musa.cefalo.assignment.NewsProvider.servicesTests.NewsServices;
 
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import musa.cefalo.assignment.NewsProvider.model.News;
+import musa.cefalo.assignment.NewsProvider.exceptions.ResourceNotFoundException;
 import musa.cefalo.assignment.NewsProvider.repositories.NewsRepository;
+import musa.cefalo.assignment.NewsProvider.services.NewsService;
+import musa.cefalo.assignment.NewsProvider.services.NewsServiceImpl;
 import org.junit.Assert;
-import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.HashMap;
 
-import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.when;
 
 @ContextConfiguration(classes = {NewsServiceTestConfiguration.class})
@@ -24,10 +25,13 @@ public class Steps {
     @Autowired
     private HashMap<String, Object> testContext;
 
+    private NewsService newsService;
+
     @Before
     public void Initialize()
     {
-        reset(testContext);
+        testContext = new HashMap<>();
+        newsService = new NewsServiceImpl(newsRepository);
     }
 
     @Given("^news with id ([0-9]+) doesn't exist$")
@@ -39,12 +43,16 @@ public class Steps {
     @When("^a GET request is received for news with newsId ([0-9]+)$")
     public void getRequestReceived(int id) throws Exception
     {
-        testContext.put("ExpectedNews", newsRepository.findOne(id));
+        try{
+            newsService.findOne(id);
+        }catch (ResourceNotFoundException e){
+            testContext.put("ExpectedException", e);
+        }
     }
 
     @Then("^null is returned$")
     public void nullIsReturned() throws Throwable {
-        News expectedNews = (News) testContext.get("ExpectedNews");
-        Assert.assertNull(expectedNews);
+        ResourceNotFoundException expectedException = (ResourceNotFoundException) testContext.get("ExpectedException");
+        Assert.assertNotNull(expectedException);
     }
 }

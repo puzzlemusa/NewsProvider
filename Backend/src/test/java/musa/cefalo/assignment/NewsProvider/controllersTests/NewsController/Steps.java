@@ -1,6 +1,7 @@
 package musa.cefalo.assignment.NewsProvider.controllersTests.NewsController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,7 +10,6 @@ import musa.cefalo.assignment.NewsProvider.services.NewsService;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
-import org.junit.Before;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -43,13 +43,13 @@ public class Steps {
     public void Initialize()
     {
         reset(newsService);
-        reset(testContext);
+        testContext = new HashMap<>();
     }
 
     @Given("^an existing news$")
     public void anExistingNews(Map<String, String> newsMap) throws Throwable {
         News news = new News();
-        news.setNewsId(1);
+        news.setNewsId(Integer.parseInt(newsMap.get("newsId")));
         news.setTitle(newsMap.get("title"));
         news.setBody(newsMap.get("body"));
         news.setAuthor(newsMap.get("author"));
@@ -63,10 +63,9 @@ public class Steps {
     public void anExistingListOfNews(List<Map<String, String>> newsMapList) throws Throwable {
         ArrayList<News> result = new ArrayList<>();
 
-        int i = 1;
         for(Map<String, String> newsMap: newsMapList){
             News news = new News();
-            news.setNewsId(i++);
+            news.setNewsId(Integer.parseInt(newsMap.get("newsId")));
             news.setTitle(newsMap.get("title"));
             news.setBody(newsMap.get("body"));
             news.setAuthor(newsMap.get("author"));
