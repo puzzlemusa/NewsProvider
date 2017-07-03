@@ -10,11 +10,11 @@ This is a Cefalo assignment, a simple news service provider application. This ap
 
 * For the backend Spring Boot is used.
 * For frontend Angular 2 is used.
-* Cucumber for testing
+* Cucumber for unit testing
 
 ### How do I get set up? ###
 ####Backend####
-To run backend just to to **Backend** directory. Open command prompt there and type
+To run backend just go to **Backend** directory. Open command prompt there and type
 ```
 gradlew build
 ```
@@ -25,8 +25,8 @@ gradlew bootRun
 ```
 Then server should be up and running on http://localhost:8080/news.json
 
-####Frondend####
-First we need install Node. If your system don't have Node install, go to https://nodejs.org/en/download/, download and install. Installation is pretty straight forward so it wont be a problem.
+####Frontend####
+First you need install Node. If your system don't have Node installed, go to https://nodejs.org/en/download/, download and install. Installation is pretty straight forward so it wont be a problem.
 Now go to **Frontdend** directory. Open another command prompt instance there and type:
 ```
 npm install
@@ -35,15 +35,15 @@ hit enter. Again it should take couple of minutes to download all dependencies. 
 ```
 npm start
 ```
-and hit enter, then a news form should opened in your default browser.
+and hit enter, then a news form should be opened in your default browser.
 
 ### Testing ###
-To run test just go **Backend** directory, open command prompt there and type:
+To run test just go to **Backend** directory, open command prompt there and type:
 ```
 gradlew test
 ```
 hit enter, all test should be run.
-When finished if you want see the features that tests covered just go to **Backend\CucumberReports** directory.
+When finished if you want to see the features that the tests covered just go to **Backend\CucumberReports** directory.
 Here you will find different directory for different features. Enter into any of them and open **index.html**.
 You'll able to see the feature.
 
