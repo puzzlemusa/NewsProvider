@@ -4,7 +4,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-This is a Cefalo assignment, a simple news service provider application. This application is divided into frontend and backend parts. Here we can add news and view news. We can use the api in both json and xml data format. BDD style tests are written for server code.
+This is a simple news service provider application. This application is divided into frontend and backend parts. Here we can add news and view news. We can use the api in both json and xml data format. BDD style tests are written for server code.
 
 ### Framework used ###
 
